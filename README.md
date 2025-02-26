@@ -48,8 +48,8 @@ helm repo update
 Deploy MariaDB and Redis using Helm. (Remember to update the passwords for a production environment.)
 
 ```bash
-helm install mariadb bitnami/mariadb --set auth.rootPassword="0717121315kA@123"
-helm install redis bitnami/redis --set global.redis.password="0717121315kA@123"
+helm install mariadb bitnami/mariadb --set auth.rootPassword="YourPassword"
+helm install redis bitnami/redis --set global.redis.password="YourPassword"
 ```
 
 > **Note:** The passwords used above are for demonstration purposes only. **Change these to secure values in your environment.**
