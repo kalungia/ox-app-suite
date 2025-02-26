@@ -93,11 +93,37 @@ v/bin/python render.py
 
 ### 8. Run the Final Installation Script
 
+Before running the installation script, you can change the default hostname `as8.lab.test` to your own domain name in the `values.yml or lab.yml` file.
+
 Navigate to the rendered lab directory and execute the installation script:
 
 ```bash
 cd rendered/lab
 ./install.sh
+```
+## Accessing the Web Application
+
+The default configuration of the lab produces a service for web UI access of type NodePort. This was chosen for its universal availability. For other service type options, see the advanced documentation, section "Accessing the Web Application".
+
+```bash
+kubectl get service -n as8 istio-ingressgateway
+```
+
+Example output:
+
+```bash
+NAME                   TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)                                      AGE
+istio-ingressgateway   NodePort   10.233.13.12   <none>        15021:30021/TCP,80:30080/TCP,443:30443/TCP   18m
+```
+
+To connect to App Suite via this service, two more things need to be done:
+
+1. The default lab configuration configures a hostname of `as8.lab.test` (via the `as_hostname` key in `lab.yml`). This is not a valid publicly resolvable DNS name, so you need to add a local `/etc/hosts` entry for that purpose. (Windows: the hosts file location is something like `C:\Windows\system32\drivers\etc\hosts`.)
+
+2. The example assumes a `10.50.2.89` IP for your k8s node (or, one of your k8s nodes):
+
+```bash
+10.50.2.89 as8.lab.test
 ```
 
 ## Post-Installation
