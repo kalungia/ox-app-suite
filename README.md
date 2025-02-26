@@ -4,6 +4,8 @@ This repository contains a step-by-step guide for installing Ox App Suite v8. Th
 
 ## Prerequisites
 
+- **Tested On:** Ubuntu 22.04 LTS
+
 - **Operating System:** Debian-based Linux (Ubuntu 22.04) with `sudo` privileges.
 
 ## Installation Steps
