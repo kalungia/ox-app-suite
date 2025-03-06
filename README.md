@@ -136,6 +136,11 @@ After running the installation steps, verify that all components are up and runn
 kubectl get pods --namespace as8
 ```
 
+```bash
+kubectl expose deployment as8 --type=LoadBalancer --name=as8
+kubectl expose deployment keycloak --type=LoadBalancer --name=keycloak
+```
+
 ## Troubleshooting
 
 - **Permissions:** Ensure you run commands with the necessary privileges (e.g., using `sudo` where required).
